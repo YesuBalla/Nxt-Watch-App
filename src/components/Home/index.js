@@ -13,7 +13,6 @@ import ThemeAndVideoContext from '../../context/ThemeAndVideoContext'
 
 import {
   HomeContainer,
-  HomeContentContainer,
   BannerContainer,
   BannerImage,
   BannerText,
@@ -136,49 +135,47 @@ class Home extends Component {
           return (
             <>
               <Header />
-              <HomeContentContainer>
-                <Sidebar />
-                <HomeContainer data-testid="home" bgColor={bgColor}>
-                  <BannerContainer data-testid="banner" display={display}>
-                    <BannerLeftPart>
-                      <BannerImage
-                        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                        alt="nxt watch logo"
-                      />
-                      <BannerText>
-                        Buy Nxt Watch Premium prepaid plans with
-                        <br />
-                        UPI
-                      </BannerText>
-                      <BannerButton>GET IT NOW</BannerButton>
-                    </BannerLeftPart>
-                    <BannerRightPart>
-                      <BannerCloseButton
-                        data-testid="close"
-                        onClick={this.onCloseBanner}
-                      >
-                        <AiOutlineClose size={25} />
-                      </BannerCloseButton>
-                    </BannerRightPart>
-                  </BannerContainer>
-                  <SearchContainer>
-                    <SearchInput
-                      type="search"
-                      placeholder="Search"
-                      value={searchInput}
-                      onChange={this.onChangeInput}
-                      color={color}
+              <Sidebar />
+              <HomeContainer data-testid="home" bgColor={bgColor}>
+                <BannerContainer data-testid="banner" display={display}>
+                  <BannerLeftPart>
+                    <BannerImage
+                      src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                      alt="nxt watch logo"
                     />
-                    <SearchIconContainer
-                      data-testid="searchButton"
-                      onClick={this.getSearchResults}
+                    <BannerText>
+                      Buy Nxt Watch Premium prepaid plans with
+                      <br />
+                      UPI
+                    </BannerText>
+                    <BannerButton>GET IT NOW</BannerButton>
+                  </BannerLeftPart>
+                  <BannerRightPart>
+                    <BannerCloseButton
+                      data-testid="close"
+                      onClick={this.onCloseBanner}
                     >
-                      <AiOutlineSearch size={20} />
-                    </SearchIconContainer>
-                  </SearchContainer>
-                  {this.renderHomeVideos()}
-                </HomeContainer>
-              </HomeContentContainer>
+                      <AiOutlineClose size={25} />
+                    </BannerCloseButton>
+                  </BannerRightPart>
+                </BannerContainer>
+                <SearchContainer>
+                  <SearchInput
+                    type="search"
+                    placeholder="Search"
+                    value={searchInput}
+                    onChange={this.onChangeInput}
+                    color={color}
+                  />
+                  <SearchIconContainer
+                    data-testid="searchButton"
+                    onClick={this.getSearchResults}
+                  >
+                    <AiOutlineSearch size={20} />
+                  </SearchIconContainer>
+                </SearchContainer>
+                {this.renderHomeVideos()}
+              </HomeContainer>
             </>
           )
         }}

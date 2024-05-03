@@ -14,11 +14,6 @@ export const HomeContainer = styled.div`
   }
 `
 
-export const HomeContentContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
 export const BannerContainer = styled.div`
   background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
   width: 100%;

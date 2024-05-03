@@ -9,8 +9,8 @@ export const SidebarLgContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 18%;
   height: 92%;
+  width: 18%;
   position: fixed;
   top: 60px;
   background-color: ${props => props.bgColor};

@@ -1,19 +1,27 @@
+import {Link} from 'react-router-dom'
 import styled from 'styled-components'
+
+export const ItemLink = styled(Link)`
+  text-decoration: none;
+`
 
 export const ListItem = styled.li`
   background: none;
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-self: center;
+  margin-bottom: 20px;
   @media screen and (min-width: 768px) {
-    width: 280px;
-    margin-right: 20px;
+    flex-direction: row;
+    padding-left: 40px;
   }
 `
 
 export const ThumbnailImage = styled.img`
   width: 100%;
+  @media screen and (min-width: 768px) {
+    width: 300px;
+  }
 `
 export const VideoDetails = styled.div`
   display: flex;
@@ -25,12 +33,18 @@ export const ProfileImage = styled.img`
   height: 30px;
   border-radius: 50px;
   margin: 20px;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 `
 export const ContentSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   padding: 8px;
+  @media screen and (min-width: 768px) {
+    margin-left: 20px;
+  }
 `
 
 export const Title = styled.p`
