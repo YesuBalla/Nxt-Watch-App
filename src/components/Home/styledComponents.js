@@ -8,17 +8,16 @@ export const HomeContainer = styled.div`
   overflow-y: auto;
   width: 82%;
   font-family: 'Roboto';
-  @media screen and (min-width: 768px) {
-    margin-left: 250px;
-    margin-bottom: 0px;
-  }
 `
-
+export const HomeContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
 export const BannerContainer = styled.div`
   background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
   width: 100%;
   background-size: cover;
-  height: 200px;
+  height: 35vh;
   display: ${props => props.display};
   justify-content: space-between;
   padding: 20px;
@@ -62,7 +61,7 @@ export const SearchContainer = styled.div`
   display: flex;
   border: 1px solid #909090;
   border-radius: 3px;
-  margin: 20px;
+  margin: 25px;
   width: 60%;
   height: 40px;
   @media screen and (min-width: 576px) {

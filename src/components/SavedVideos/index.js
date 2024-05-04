@@ -8,6 +8,7 @@ import ThemeAndVideoContext from '../../context/ThemeAndVideoContext'
 
 import {
   SavedContainer,
+  SavedContentContainer,
   SavedTitleIconContainer,
   SavedVideoTitle,
   SavedVideoList,
@@ -28,38 +29,40 @@ const SavedVideos = () => (
       const noteColor = isDarkTheme ? '#e2e8f0' : '#475569'
 
       return (
-        <>
+        <div style={{backgroundColor: bgColor}}>
           <Header />
-          <Sidebar />
-          <SavedContainer data-testid="savedVideos" bgColor={bgColor}>
-            <SavedVideoTitle>
-              <SavedTitleIconContainer>
-                <CgPlayListAdd size={35} color="#ff0000" />
-              </SavedTitleIconContainer>
-              <SavedText color={textColor}>Saved Videos</SavedText>
-            </SavedVideoTitle>
-            {savedVideos.length > 0 ? (
-              <SavedVideoList>
-                {savedVideos.map(eachVideo => (
-                  <VideoCard key={eachVideo.id} videoDetails={eachVideo} />
-                ))}
-              </SavedVideoList>
-            ) : (
-              <NoSavedVideosView>
-                <NoSavedVideosImage
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
-                  alt="no saved videos"
-                />
-                <NoSavedVideosHeading color={headingColor}>
-                  No saved videos found
-                </NoSavedVideosHeading>
-                <NoSavedVideosNote color={noteColor}>
-                  you can save your videos while watching them
-                </NoSavedVideosNote>
-              </NoSavedVideosView>
-            )}
-          </SavedContainer>
-        </>
+          <SavedContentContainer>
+            <Sidebar />
+            <SavedContainer data-testid="savedVideos" bgColor={bgColor}>
+              <SavedVideoTitle>
+                <SavedTitleIconContainer>
+                  <CgPlayListAdd size={35} color="#ff0000" />
+                </SavedTitleIconContainer>
+                <SavedText color={textColor}>Saved Videos</SavedText>
+              </SavedVideoTitle>
+              {savedVideos?.length === 0 ? (
+                <NoSavedVideosView>
+                  <NoSavedVideosImage
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
+                    alt="no saved videos"
+                  />
+                  <NoSavedVideosHeading color={headingColor}>
+                    No saved videos found
+                  </NoSavedVideosHeading>
+                  <NoSavedVideosNote color={noteColor}>
+                    Save your videos by clicking a button
+                  </NoSavedVideosNote>
+                </NoSavedVideosView>
+              ) : (
+                <SavedVideoList>
+                  {savedVideos.map(eachVideo => (
+                    <VideoCard key={eachVideo.id} videoDetails={eachVideo} />
+                  ))}
+                </SavedVideoList>
+              )}
+            </SavedContainer>
+          </SavedContentContainer>
+        </div>
       )
     }}
   </ThemeAndVideoContext.Consumer>

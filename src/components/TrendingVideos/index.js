@@ -13,6 +13,7 @@ import ThemeAndVideoContext from '../../context/ThemeAndVideoContext'
 
 import {
   TrendingVideosContainer,
+  TrendingContent,
   TrendingContentContainer,
   TitleIconContainer,
   TrendingVideoTitle,
@@ -54,7 +55,7 @@ class TrendingVideos extends Component {
         thumbnailUrl: eachVideo.thumbnail_url,
         viewCount: eachVideo.view_count,
         publishedAt: eachVideo.published_at,
-        name: eachVideo.name,
+        name: eachVideo.channel.name,
         profileImageUrl: eachVideo.channel.profile_image_url,
       }))
       this.setState({
@@ -108,24 +109,26 @@ class TrendingVideos extends Component {
     return (
       <ThemeAndVideoContext.Consumer>
         {value => {
-          const {isDarkTheme, toggleTheme} = value
+          const {isDarkTheme} = value
 
           const bgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
           const textColor = isDarkTheme ? '#f9f9f9' : '#231f20'
 
           return (
-            <TrendingVideosContainer data-testid="trending">
+            <TrendingVideosContainer bgColor={bgColor} data-testid="trending">
               <Header />
-              <Sidebar />
-              <TrendingContentContainer bgColor={bgColor} onClick={toggleTheme}>
-                <TrendingVideoTitle>
-                  <TitleIconContainer>
-                    <HiFire size={35} color="#ff0000" />
-                  </TitleIconContainer>
-                  <TrendingText color={textColor}>Trending</TrendingText>
-                </TrendingVideoTitle>
-                {this.renderTrendingVideos()}
-              </TrendingContentContainer>
+              <TrendingContent>
+                <Sidebar />
+                <TrendingContentContainer bgColor={bgColor}>
+                  <TrendingVideoTitle>
+                    <TitleIconContainer>
+                      <HiFire size={35} color="#ff0000" />
+                    </TitleIconContainer>
+                    <TrendingText color={textColor}>Trending</TrendingText>
+                  </TrendingVideoTitle>
+                  {this.renderTrendingVideos()}
+                </TrendingContentContainer>
+              </TrendingContent>
             </TrendingVideosContainer>
           )
         }}

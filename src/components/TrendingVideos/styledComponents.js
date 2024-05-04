@@ -1,17 +1,21 @@
 import styled from 'styled-components'
 
-export const TrendingVideosContainer = styled.div``
+export const TrendingVideosContainer = styled.div`
+  background-color: ${props => props.bgColor};
+`
 
 export const TrendingContentContainer = styled.div`
   background-color: ${props => props.bgColor};
   min-height: 100vh;
+  width: 82%;
   margin-bottom: 60px;
   margin-top: 60px;
   overflow-y: auto;
-  @media screen and (min-width: 768px) {
-    margin-left: 250px;
-    margin-bottom: 0px;
-  }
+`
+
+export const TrendingContent = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 export const TrendingVideoTitle = styled.div`

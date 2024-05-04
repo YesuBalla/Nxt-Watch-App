@@ -25,7 +25,7 @@ export const NavOptions = styled.ul`
   flex-grow: 1;
   list-style-type: none;
   padding: 0px;
-  margin-top: 0px;
+  margin-top: 15px;
 `
 
 export const NavLink = styled(Link)`

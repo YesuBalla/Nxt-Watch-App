@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const VideoPlayer = styled.div`
+  background-color: ${props => props.bgColor};
   padding: 20px;
 `
 export const PlayVideoTitle = styled.p`
@@ -44,7 +45,8 @@ export const SocialButton = styled.button`
 
 export const ButtonText = styled.span`
   margin-left: 5px;
-  color: #2563eb;
+  color: ${props => props.color}
+  font-weight: bold;
   @media screen and (max-width: 576px) {
     display: none;
   }

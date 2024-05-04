@@ -1,4 +1,9 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
+
+export const ItemLink = styled(Link)`
+  text-decoration: none;
+`
 
 export const ListItem = styled.li`
   background: none;
@@ -7,8 +12,8 @@ export const ListItem = styled.li`
   flex-direction: column;
   align-self: center;
   @media screen and (min-width: 768px) {
-    width: 280px;
-    margin-right: 20px;
+    width: 300px;
+    margin-right: 30px;
   }
 `
 

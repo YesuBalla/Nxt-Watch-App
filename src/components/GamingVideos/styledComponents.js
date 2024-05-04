@@ -1,17 +1,16 @@
 import styled from 'styled-components'
 
-export const GamingVideosContainer = styled.div``
-
 export const GamingContentContainer = styled.div`
   background-color: ${props => props.bgColor};
   min-height: 100vh;
+  width: 82%;
   margin-bottom: 60px;
   margin-top: 60px;
   overflow-y: auto;
-  @media screen and (min-width: 768px) {
-    margin-left: 250px;
-    margin-bottom: 0px;
-  }
+`
+export const GamingContent = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 export const GamingVideoTitle = styled.div`

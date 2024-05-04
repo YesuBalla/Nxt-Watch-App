@@ -26,7 +26,6 @@ import {
 
 const PlayVideoView = props => {
   const {videoDetails, isLiked, isDisLiked, clickLiked, clickDisLiked} = props
-  console.log(videoDetails)
   const onClickLike = () => {
     clickLiked()
   }
@@ -39,6 +38,7 @@ const PlayVideoView = props => {
       {value => {
         const {isDarkTheme, addVideo, savedVideos} = value
         const textColor = isDarkTheme ? '#64748b' : '#231f28'
+        const bgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
         let isSaved
         const index = savedVideos.findIndex(
           eachVideo => eachVideo.id === videoDetails.id,
@@ -53,7 +53,7 @@ const PlayVideoView = props => {
           addVideo(videoDetails)
         }
         return (
-          <VideoPlayer>
+          <VideoPlayer bgColor={bgColor}>
             <ReactPlayer url={videoDetails.videoUrl} controls width="100%" />
             <PlayVideoTitle color={textColor}>
               {videoDetails.title}
@@ -72,7 +72,9 @@ const PlayVideoView = props => {
                     onClick={onClickLike}
                   >
                     <AiOutlineLike size={25} />
-                    <ButtonText>Like</ButtonText>
+                    <ButtonText color={isLiked ? '#2563eb' : '#64748b'}>
+                      Like
+                    </ButtonText>
                   </SocialButton>
                 </BtnContainer>
                 <BtnContainer>
@@ -82,7 +84,9 @@ const PlayVideoView = props => {
                     onClick={onClickDisLike}
                   >
                     <AiOutlineDislike size={25} />
-                    <ButtonText>Dislike</ButtonText>
+                    <ButtonText color={isDisLiked ? '#2563eb' : '#64748b'}>
+                      Dislike
+                    </ButtonText>
                   </SocialButton>
                 </BtnContainer>
                 <BtnContainer>

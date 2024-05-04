@@ -48,7 +48,7 @@ class VideoDetailView extends Component {
     const response = await fetch(url, options)
     if (response.ok) {
       const data = await response.json()
-
+      console.log(data)
       const updatedData = {
         id: data.video_details.id,
         title: data.video_details.title,
@@ -59,7 +59,7 @@ class VideoDetailView extends Component {
         description: data.video_details.description,
         name: data.video_details.channel.name,
         profileImageUrl: data.video_details.channel.profile_image_url,
-        SubscriberCount: data.video_details.subscriber_count,
+        subscriberCount: data.video_details.channel.subscriber_count,
       }
       this.setState({
         videoDetails: updatedData,
@@ -133,7 +133,7 @@ class VideoDetailView extends Component {
           const bgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
 
           return (
-            <>
+            <div style={{backgroundColor: bgColor}}>
               <Header />
               <Sidebar />
               <VideoDetailViewContainer
@@ -142,7 +142,7 @@ class VideoDetailView extends Component {
               >
                 {this.renderVideoDetailView()}
               </VideoDetailViewContainer>
-            </>
+            </div>
           )
         }}
       </ThemeAndVideoContext.Consumer>

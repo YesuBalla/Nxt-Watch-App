@@ -12,8 +12,8 @@ import GameVideoCard from '../GameVideoCard'
 import ThemeAndVideoContext from '../../context/ThemeAndVideoContext'
 
 import {
-  GamingVideosContainer,
   GamingContentContainer,
+  GamingContent,
   GamingTitleIconContainer,
   GamingVideoTitle,
   GamingVideoList,
@@ -105,25 +105,27 @@ class GamingVideos extends Component {
     return (
       <ThemeAndVideoContext.Consumer>
         {value => {
-          const {isDarkTheme, toggleTheme} = value
+          const {isDarkTheme} = value
 
           const bgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
           const textColor = isDarkTheme ? '#f9f9f9' : '#231f20'
 
           return (
-            <GamingVideosContainer data-testid="gaming">
+            <div style={{'background-color': bgColor}} data-testid="gaming">
               <Header />
-              <Sidebar />
-              <GamingContentContainer bgColor={bgColor} onClick={toggleTheme}>
-                <GamingVideoTitle>
-                  <GamingTitleIconContainer>
-                    <SiYoutubegaming size={35} color="#ff0000" />
-                  </GamingTitleIconContainer>
-                  <GamingText color={textColor}>Gaming</GamingText>
-                </GamingVideoTitle>
-                {this.renderGamingVideos()}
-              </GamingContentContainer>
-            </GamingVideosContainer>
+              <GamingContent>
+                <Sidebar />
+                <GamingContentContainer bgColor={bgColor}>
+                  <GamingVideoTitle>
+                    <GamingTitleIconContainer>
+                      <SiYoutubegaming size={35} color="#ff0000" />
+                    </GamingTitleIconContainer>
+                    <GamingText color={textColor}>Gaming</GamingText>
+                  </GamingVideoTitle>
+                  {this.renderGamingVideos()}
+                </GamingContentContainer>
+              </GamingContent>
+            </div>
           )
         }}
       </ThemeAndVideoContext.Consumer>

@@ -3,13 +3,15 @@ import styled from 'styled-components'
 export const SavedContainer = styled.div`
   background-color: ${props => props.bgColor};
   min-height: 100vh;
-  margin-bottom: 60;
+  margin-bottom: 60px;
   margin-top: 60px;
+  width: 82%;
   overflow-y: auto;
-  @media screen (min-width: 768px) {
-    margin-left: 250px;
-    margin-bottom: 0px;
-  }
+`
+
+export const SavedContentContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 export const SavedVideoTitle = styled.div`
   display: flex;
@@ -64,7 +66,7 @@ export const NoSavedVideosHeading = styled.h1`
   color: ${props => props.color};
   text-align: center;
 `
-export const NoSavedVideosNote = styled.h1`
+export const NoSavedVideosNote = styled.p`
   font-family: 'Roboto';
   font-size: 18px;
   color: ${props => props.color};

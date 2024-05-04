@@ -42,6 +42,6 @@ export const VideoCardList = styled.ul`
   flex-wrap: wrap;
   justify-content: flex-start;
   @media screen and (min-width: 768px) {
-    margin-left: 20px;
+    margin-left: 25px;
   }
 `
